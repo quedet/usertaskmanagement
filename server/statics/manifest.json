@@ -1,24 +1,24 @@
 {
-  "app.css": "/static/css/app.79396789f15ebe5e4a51.css",
-  "app.js": "/static/js/app.8f390e4d.js",
+  "app.css": "/static/css/app.4d9c25fe1dda45dd2bb6.css",
+  "app.js": "/static/js/app.dddabdcb.js",
   "css/274.1019730737eccccaa507.css": "/static/css/274.1019730737eccccaa507.css",
   "css/274.1019730737eccccaa507.css.map": "/static/css/274.1019730737eccccaa507.css.map",
-  "css/app.79396789f15ebe5e4a51.css.map": "/static/css/app.79396789f15ebe5e4a51.css.map",
+  "css/app.4d9c25fe1dda45dd2bb6.css.map": "/static/css/app.4d9c25fe1dda45dd2bb6.css.map",
   "entrypoints": {
     "app": {
       "assets": {
         "js": [
           "/static/js/runtime.a5631209.js",
-          "/static/js/app.8f390e4d.js"
+          "/static/js/app.dddabdcb.js"
         ],
         "css": [
           "/static/css/274.1019730737eccccaa507.css",
-          "/static/css/app.79396789f15ebe5e4a51.css"
+          "/static/css/app.4d9c25fe1dda45dd2bb6.css"
         ]
       }
     }
   },
-  "js/app.8f390e4d.js.map": "/static/js/app.8f390e4d.js.map",
+  "js/app.dddabdcb.js.map": "/static/js/app.dddabdcb.js.map",
   "js/runtime.a5631209.js.map": "/static/js/runtime.a5631209.js.map",
   "runtime.js": "/static/js/runtime.a5631209.js",
   "vendors/.gitkeep": "/static/vendors/.gitkeep",
