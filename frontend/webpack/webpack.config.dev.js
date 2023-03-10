@@ -26,7 +26,7 @@ module.exports = merge(common, {
       writeToDisk: true,
     },
     watchFiles: [
-      path.join(__dirname, '../../templates/**/*.html'),
+      path.join(__dirname, '../../server/templates/**/*.html'),
       path.join(__dirname, '../../server/**/*.py')
     ]
   },

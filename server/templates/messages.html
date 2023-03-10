@@ -1,7 +1,19 @@
+{% comment %}
+MESSAGE_TAGS = {
+    messages.INFO: 'bg-sky-500',
+    messages.SUCCESS: 'bg-emerald-500',
+    messages.WARNING: 'bg-amber-500',
+    messages.ERROR: 'bg-red-500'
+}
+{% endcomment %}
+
 {% for message in messages %}
-<div data-turbo-temporary="true" class="{{ message.tags }} bg-green-500">
-    <div class="w-full max-w-6xl mx-auto p-4">
+<div data-turbo-temporary="true" data-controller="alert" data-alert-remove-delay-value="0" class="{{ message.tags }}">
+    <div class="w-full max-w-6xl mx-auto p-4 flex items-center justify-between">
         <span>{{ message|safe }}</span>
+        <button data-action="alert#close" class="bg-transparent text-2xl font-semibold leading-none outline-none focus:outline-none">
+            <span>x</span>
+        </button>
     </div>
 </div>
 {% endfor %}

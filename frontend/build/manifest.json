@@ -1,28 +1,26 @@
 {
-  "app.css": "/static/css/app.79396789f15ebe5e4a51.css",
-  "app.js": "/static/js/app.8f390e4d.js",
-  "css/274.1019730737eccccaa507.css": "/static/css/274.1019730737eccccaa507.css",
-  "css/274.1019730737eccccaa507.css.map": "/static/css/274.1019730737eccccaa507.css.map",
-  "css/app.79396789f15ebe5e4a51.css.map": "/static/css/app.79396789f15ebe5e4a51.css.map",
+  "app.css": "http://localhost:9091/css/app.css",
+  "app.js": "http://localhost:9091/js/app.js",
+  "css/vendors-node_modules_hotwired_stimulus-webpack-helpers_dist_stimulus-webpack-helpers_js-node_-7f4fc2.css": "http://localhost:9091/css/vendors-node_modules_hotwired_stimulus-webpack-helpers_dist_stimulus-webpack-helpers_js-node_-7f4fc2.css",
   "entrypoints": {
     "app": {
       "assets": {
         "js": [
-          "/static/js/runtime.a5631209.js",
-          "/static/js/app.8f390e4d.js"
+          "http://localhost:9091/js/runtime.js",
+          "http://localhost:9091/js/vendors-node_modules_hotwired_stimulus-webpack-helpers_dist_stimulus-webpack-helpers_js-node_-7f4fc2.js",
+          "http://localhost:9091/js/app.js"
         ],
         "css": [
-          "/static/css/274.1019730737eccccaa507.css",
-          "/static/css/app.79396789f15ebe5e4a51.css"
+          "http://localhost:9091/css/vendors-node_modules_hotwired_stimulus-webpack-helpers_dist_stimulus-webpack-helpers_js-node_-7f4fc2.css",
+          "http://localhost:9091/css/app.css"
         ]
       }
     }
   },
-  "js/app.8f390e4d.js.map": "/static/js/app.8f390e4d.js.map",
-  "js/runtime.a5631209.js.map": "/static/js/runtime.a5631209.js.map",
-  "runtime.js": "/static/js/runtime.a5631209.js",
-  "vendors/.gitkeep": "/static/vendors/.gitkeep",
-  "vendors/images/.gitkeep": "/static/vendors/images/.gitkeep",
-  "vendors/images/sample.jpg": "/static/vendors/images/sample.jpg",
-  "vendors/images/webpack.png": "/static/vendors/images/webpack.png"
+  "js/vendors-node_modules_hotwired_stimulus-webpack-helpers_dist_stimulus-webpack-helpers_js-node_-7f4fc2.js": "http://localhost:9091/js/vendors-node_modules_hotwired_stimulus-webpack-helpers_dist_stimulus-webpack-helpers_js-node_-7f4fc2.js",
+  "runtime.js": "http://localhost:9091/js/runtime.js",
+  "vendors/.gitkeep": "http://localhost:9091/vendors/.gitkeep",
+  "vendors/images/.gitkeep": "http://localhost:9091/vendors/images/.gitkeep",
+  "vendors/images/sample.jpg": "http://localhost:9091/vendors/images/sample.jpg",
+  "vendors/images/webpack.png": "http://localhost:9091/vendors/images/webpack.png"
 }

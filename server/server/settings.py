@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,6 +82,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'server.wsgi.application'
+
+MESSAGE_TAGS = {
+    messages.INFO: 'bg-sky-500',
+    messages.SUCCESS: 'bg-emerald-500',
+    messages.WARNING: 'bg-amber-500',
+    messages.ERROR: 'bg-red-500'
+}
 
 
 # Database

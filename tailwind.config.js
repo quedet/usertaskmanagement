@@ -4,6 +4,7 @@ const pySitesPackages = path.join(__dirname, 'env/Lib/site-packages');
 
 const projectPaths = [
   path.join(__dirname, 'server/templates/**/*.html'),  
+  path.join(__dirname, './node_modules/tailwindcss-stimulus-components/dist/*.js')
 ];
 
 let pyPackagesPaths = [];

@@ -13,6 +13,10 @@ from apps.tasks.forms import TaskForm
 
 
 def playground_view(request):
+    messages.info(request, 'Info Message')
+    messages.success(request, 'Success Message')
+    messages.error(request, 'Error Message')
+    messages.warning(request, 'Warning Message')
     return render(request, 'tasks/playground.html')
 
 
