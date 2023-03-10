@@ -3,7 +3,7 @@ const path = require('path');
 const pySitesPackages = path.join(__dirname, 'env/Lib/site-packages');
 
 const projectPaths = [
-  path.join(__dirname, 'templates/**/*.html'),  
+  path.join(__dirname, 'server/templates/**/*.html'),  
 ];
 
 let pyPackagesPaths = [];
