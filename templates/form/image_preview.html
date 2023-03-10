@@ -1,0 +1,9 @@
+<div>
+    <!-- <img src="{{ widget.value }}" alt=""> -->
+    <input type="file" name="{{ widget.name }}" id=""
+        accept="image/*"
+        {% if widget.value != None %}value="{{ widget.value}}"{% endif %}
+        class="textinput py-2 leading-normal text-gray-700 bg-white px-4 appearance-none focus:outline-none rounded-lg w-full border-gray-300 block border"
+        {% include "django/forms/widgets/attrs.html" %}
+    >
+</div>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header class="mb-6 border-b pb-4">
+        <p><a href="{% url 'accounts:profile' %}">Back To Profile</a></p>
+        <h1 class="text-4xl mb-4">Settings</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quibusdam ratione nobis, accusantium quae assumenda id sit nihil tempora? Nesciunt est doloremque obcaecati eligendi ab iure rem? Doloribus, totam cum.</p>
+    </header>
+    <div class="grid grid-cols-6 items-start">
+        <aside class="col-start-1 col-end-3">
+            <ul class="flex flex-col gap-2">
+                <li><a href="{% url 'accounts:edit_info' %}">Personal Information</a></li>
+                <li><a href="{% url 'accounts:edit_email' %}">Change your email address</a></li>
+                <li><a href="{% url 'accounts:edit_password' %}">Change your password</a></li>
+                <li><a href="#">Supports</a></li>
+            </ul>
+        </aside>
+        <div class="col-start-3 col-end-[-1]">
+            {% block content-form %}
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam maxime quaerat nostrum temporibus doloribus fuga. Incidunt quasi omnis, cupiditate quo, nobis aut itaque dignissimos hic sunt soluta, inventore explicabo? Labore modi veritatis maxime nostrum, totam consectetur repudiandae neque illo aliquam mollitia quos similique corrupti! Esse similique ab fuga voluptatem atque eveniet illum illo id, voluptate modi laudantium facere error perspiciatis quibusdam commodi, repudiandae accusantium dolorum. Iusto praesentium iste quidem, reprehenderit tempore non molestiae dolorum soluta, perferendis aspernatur ducimus quas temporibus rerum assumenda nisi magni veniam et nulla corrupti amet maxime aliquam quasi ratione molestias! Dignissimos veniam repellat hic asperiores ex.</p>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

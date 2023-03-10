@@ -1,0 +1,27 @@
+<turbo-frame id="task-detail-{{ task.pk }}">
+    <div class="flex flex-col gap-2 border px-4 py-4">
+        <header>
+            <p>{{ task.owner }}</p>
+            <h3 class="text-2xl">
+                <a href="{% url 'tasks:task-detail' task.pk %}" data-turbo-frame="_top">{{ task.title }}</a>
+            </h3>
+        </header>
+        {% if task.description %}
+        <p class="text-gray-700">
+            {{ task.description|truncatechars:60 }}
+        </p>
+        {% endif %}
+    
+        {% if request.user == task.owner %}
+        <footer class="">
+            {% if perms.tasks.change_task %}
+            <button><a href="{% url 'tasks:task-edit' task.pk %}" class="btn-blue">Edit</a></button>
+            {% endif %}
+            
+            {% if perms.tasks.delete_task %}
+            <button><a href="{% url 'tasks:task-delete' task.pk %}" class="btn-red">Delete</a></button>
+            {% endif %}
+        </footer>
+        {% endif %}
+    </div>
+</turbo-frame>

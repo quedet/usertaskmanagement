@@ -1,0 +1,7 @@
+{% for message in messages %}
+<div data-turbo-temporary="true" class="{{ message.tags }} bg-green-500">
+    <div class="w-full max-w-6xl mx-auto p-4">
+        <span>{{ message|safe }}</span>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,7 @@
+<form action="{% url 'tasks:task-delete' instance.pk %}" method="post"
+    data-controller="form" 
+    data-action="turbo:submit-start->form#submitStart turbo:submit-end->form#submitEnd">
+    {% csrf_token %}
+    <button type="submit" class="btn-blue" data-form-target="submit">Yes, I'm sure</button>
+    <button type="button" class="btn-red">Cancel</button>
+</form>

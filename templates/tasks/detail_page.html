@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header class="mb-6 border-b pb-4">
+        <p><a href="{% url 'tasks:task-edit' instance.pk %}">Edit Task</a></p>
+        <h1 class="text-4xl mb-4">{{ instance.title }}</h1>
+        {% if instance.description %}
+        <p>{{ instance.description }}</p>
+        {% else %}
+        <p>No description yet.</p>
+        {% endif %}
+    </header>
+    <div class="">
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus sapiente consequatur ipsam facilis enim tenetur vel ratione fugit debitis optio necessitatibus, harum totam iusto tempore dolorum nihil ad asperiores et.</p>
+        </div>
+    </div>
+{% endblock %}

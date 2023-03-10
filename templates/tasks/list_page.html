@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header class="mb-6 border-b pb-4">
+        <p><a href="{% url 'tasks:task-create' %}">Create a task</a></p>
+        <h1 class="text-4xl mb-4">Tasks</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quibusdam ratione nobis, accusantium quae assumenda id sit nihil tempora? Nesciunt est doloremque obcaecati eligendi ab iure rem? Doloribus, totam cum.</p>
+    </header>
+    <turbo-frame id="task-list">
+        <div class="flex flex-col gap-4">
+            {% for task in object_list %}
+                {% include 'tasks/task_detail.html' with task=task %}
+            {% endfor %}
+        </div>
+    </turbo-frame>
+{% endblock %}

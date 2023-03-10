@@ -1,0 +1,11 @@
+{% load crispy_forms_tags %}
+
+<form action="{% url 'tasks:task-edit' form.instance.pk %}" method="post"
+    data-controller="form" 
+    data-action="turbo:submit-start->form#submitStart turbo:submit-end->form#submitEnd">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div>
+        <button type="submit" class="btn-blue" data-form-target="submit">Save</button>
+    </div>
+</form>

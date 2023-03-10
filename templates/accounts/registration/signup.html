@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="w-full max-w-6xl mx-auto py-4">
+    <header class="mb-12">
+        <h1 class="text-4xl mb-4">Get started</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quibusdam ratione nobis, accusantium quae assumenda id sit nihil tempora? Nesciunt est doloremque obcaecati eligendi ab iure rem? Doloribus, totam cum.</p>
+    </header>
+    <form action="{% url 'accounts:signup' %}" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div>
+            <button type="submit" class="bg-black text-white px-4 py-2 rounded-md">Create an account</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
