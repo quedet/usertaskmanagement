@@ -16,7 +16,7 @@
         </button>
         {% else %}
         <button type="button" class="btn-red">
-            <a href="{% url 'tasks:task-detail' form.instance.pk %}">Cancel</a>
+            <a href="{% url 'tasks:task-list' %}">Cancel</a>
         </button>
         {% endif %}
     </div>
