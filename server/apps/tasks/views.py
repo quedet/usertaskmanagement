@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required, permission_required
-from turbo_response import TurboFrame
+from turbo_response import TurboFrame, TurboStream, TurboStreamResponse
 
 from apps.tasks.models import Task
 from apps.tasks.forms import TaskForm
@@ -32,9 +32,17 @@ def create_view(request):
             messages.success(request, "Task created successfully!")
 
             if request.turbo.frame:
-                response = TurboFrame(request.turbo.frame).template(
-                    'messages.html', {}).response(request)
-                return response
+                # response = TurboFrame(request.turbo.frame).template(
+                #     'messages.html', {}).response(request)
+                return TurboStreamResponse([
+                    TurboStream('messages').append.template(
+                        'components/messages_inner.html', {}).response(request).rendered_content,
+                    TurboStream('task-create').update.template('tasks/form/create.html', {
+                        'form': TaskForm(),
+                        'request': request
+                    }).response(request).rendered_content,
+                ])
+                # return redirect(reverse('tasks:task-detail', kwargs={'pk': instance.pk}))
             else:
                 return redirect(reverse('tasks:task-detail', kwargs={'pk': instance.pk}))
         status = http.HTTPStatus.UNPROCESSABLE_ENTITY
@@ -52,20 +60,31 @@ def create_view(request):
 def update_view(request, pk):
     instance = get_object_or_404(Task, pk=pk)
 
-    if request.method == 'POST':
-        form = TaskForm(request.POST, instance=instance)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Task updated successfully!")
-            if request.turbo.frame:
-                response = TurboFrame(request.turbo.frame).template(
-                    'messages.html', {}).response(request)
-                return response
-            return redirect(reverse('tasks:task-detail', kwargs={'pk': instance.pk}))
-        status = http.HTTPStatus.UNPROCESSABLE_ENTITY
+    if request.user == instance.owner:
+        if request.method == 'POST':
+            form = TaskForm(request.POST, instance=instance)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Task updated successfully!")
+                if request.turbo.frame:
+                    # response = TurboFrame(request.turbo.frame).template(
+                    #     'messages.html', {}).response(request)
+                    # return response
+                    return TurboStreamResponse([
+                        TurboStream('messages').append.template(
+                            'components/messages_inner.html', {}).response(request).rendered_content,
+                        TurboStream(f'task-detail-{instance.pk}').update.template('tasks/task_detail.html', {
+                            'task': instance
+                        }).response(request).rendered_content
+                    ])
+                else:
+                    return redirect(reverse('tasks:task-detail', kwargs={'pk': instance.pk}))
+            status = http.HTTPStatus.UNPROCESSABLE_ENTITY
+        else:
+            status = http.HTTPStatus.OK
+            form = TaskForm(instance=instance)
     else:
-        status = http.HTTPStatus.OK
-        form = TaskForm(instance=instance)
+        return redirect('tasks:task-list')
 
     return render(request, 'tasks/update_page.html', {
         'form': form
@@ -76,14 +95,22 @@ def update_view(request, pk):
 @permission_required('tasks.delete_task', raise_exception=True)
 def delete_view(request, pk):
     instance = get_object_or_404(Task, pk=pk)
-    if request.method == 'POST':
-        instance.delete()
-        messages.success(request, "Task deleted successfully!")
-        if request.turbo.frame:
-            response = TurboFrame(request.turbo.frame).template(
-                'messages.html', {}).response(request)
-            return response
+
+    if request.user == instance.owner:
+        if request.method == 'POST':
+            instance.delete()
+            messages.success(request, "Task deleted successfully!")
+            if request.turbo.frame:
+                return TurboStreamResponse([
+                    TurboStream('messages').append.template(
+                        'components/messages_inner.html', {}).response(request).rendered_content,
+                    TurboStream(
+                        f'task-detail-li-{pk}').remove.render()
+                ])
+            return redirect('tasks:task-list')
+    else:
         return redirect('tasks:task-list')
+
     return render(request, 'tasks/delete_page.html', {
         'instance': instance
     })

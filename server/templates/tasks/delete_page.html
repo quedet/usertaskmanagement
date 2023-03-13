@@ -6,19 +6,11 @@
         <p><a href="{% url 'tasks:task-detail' instance.pk %}">Back To Task</a></p>
         <h1 class="text-4xl mb-4">Are you sure you want to delete ?</h1>
     </header>
-    <div class="bg-red-100 py-4 px-4">
-        <header class="mb-4">
-            <h3 class="text-xl">{{ instance.title }}</h3>
-        </header>
-        {% if instance.description %}
-        <p>{{ instance.description }}</p>
-        {% else %}
-        <p>No description yet.</p>
-        {% endif %}
-    </div>
     {% if request.turbo.frame %}
         <turbo-frame id="{{request.turbo.frame}}">
-            {% include 'tasks/form/delete.html' %}
+            <div class="flex flex-col gap-2">
+                {% include 'tasks/form/delete.html' %}
+            </div>
         </turbo-frame>
     {% else %}
         {% include 'tasks/form/delete.html' %}

@@ -2,7 +2,13 @@
 
 {% block content %}
     <header class="mb-6 border-b pb-4">
-        <p><a href="{% url 'tasks:task-edit' instance.pk %}">Edit Task</a></p>
+        {% if request.user.is_authenticated %}
+            {% if perms.tasks.change_task %}
+                {% if request.user == instance.owner %}
+                    <p><a href="{% url 'tasks:task-edit' instance.pk %}">Edit Task</a></p>
+                {% endif %}
+            {% endif %}
+        {% endif %}
         <h1 class="text-4xl mb-4">{{ instance.title }}</h1>
         {% if instance.description %}
         <p>{{ instance.description }}</p>

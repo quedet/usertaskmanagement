@@ -10,5 +10,14 @@
             {% include 'components/spinner.html' %}
             Save
         </button>
+        {% if request.turbo.frame %}
+        <button type="button" class="btn-red">
+            <a href="{% url 'tasks:task-list' %}">Cancel</a>
+        </button>
+        {% else %}
+        <button type="button" class="btn-red">
+            <a href="{% url 'tasks:task-detail' form.instance.pk %}">Cancel</a>
+        </button>
+        {% endif %}
     </div>
 </form>

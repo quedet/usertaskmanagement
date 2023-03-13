@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.views.generic import FormView, TemplateView
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required, permission_required
 
 from apps.accounts.forms import UserCreationForm, PersonalInfoForm, EmailEditForm
 from apps.accounts.models import User
@@ -54,6 +55,8 @@ class SettingsView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/user/settings.html'
 
 
+@login_required
+@permission_required('accounts.change_user', raise_exception=True)
 def info_edit_view(request):
     current_user = get_object_or_404(User, pk=request.user.pk)
 
@@ -75,6 +78,8 @@ def info_edit_view(request):
     }, status=status)
 
 
+@login_required
+@permission_required('accounts.change_user', raise_exception=True)
 def email_edit_view(request):
     current_user = get_object_or_404(User, pk=request.user.pk)
     if request.method == 'POST':
@@ -91,7 +96,7 @@ def email_edit_view(request):
     return render(request, 'accounts/user/edit_email.html', {'form': form}, status=status)
 
 
-class EditPasswordView(PasswordChangeView):
+class EditPasswordView(LoginRequiredMixin, PasswordChangeView):
     template_name = 'accounts/user/edit_password.html'
     success_url = reverse_lazy('accounts:settings')
 

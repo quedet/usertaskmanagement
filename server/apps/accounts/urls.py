@@ -3,7 +3,8 @@ from django.contrib.auth.views import (
     LoginView, LogoutView, PasswordResetView,
     PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView)
 
-from apps.accounts.forms import AuthenticationForm
+# from apps.accounts.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from apps.accounts.views import SignupView, ProfileView, SettingsView, info_edit_view, EditPasswordView, email_edit_view
 
 app_name = 'accounts'

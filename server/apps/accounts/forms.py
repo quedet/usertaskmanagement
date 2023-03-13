@@ -1,7 +1,7 @@
 import logging
 from django import forms
 from django.contrib.auth import authenticate
-from django.contrib.auth.forms import UserCreationForm as DjangoUserCreationForm, UsernameField
+from django.contrib.auth.forms import UserCreationForm as DjangoUserCreationForm, AuthenticationForm as DjangoAuthenticationForm
 from django.core.mail import send_mail
 
 from apps.accounts.models import User
@@ -13,7 +13,6 @@ class UserCreationForm(DjangoUserCreationForm):
     class Meta(DjangoUserCreationForm.Meta):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
-        # field_classes = {'email': UsernameField}
 
     def send_mail(self):
         logger.info(
@@ -25,33 +24,35 @@ class UserCreationForm(DjangoUserCreationForm):
                   [self.cleaned_data['email']], fail_silently=True)
 
 
-class AuthenticationForm(forms.Form):
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput, strip=False)
+# class AuthenticationForm(DjangoAuthenticationForm):
+    # email = forms.EmailField()
+    # password = forms.CharField(widget=forms.PasswordInput, strip=False)
 
-    def __init__(self, request=None, *args, **kwargs):
-        self.request = request
-        self.user = None
-        super().__init__(*args, **kwargs)
+    # def __init__(self, request=None, *args, **kwargs):
+    #     self.request = request
+    #     self.user = None
+    #     super().__init__(*args, **kwargs)
 
-    def clean(self):
-        email = self.cleaned_data.get('email')
-        password = self.cleaned_data.get('password')
+    # def clean(self):
+    #     email = self.cleaned_data.get('email')
+    #     password = self.cleaned_data.get('password')
 
-        if email is not None and password:
-            self.user = authenticate(
-                self.request, email=email, password=password)
+    #     if email is not None and password:
+    #         self.user = authenticate(
+    #             self.request, email=email, password=password)
 
-            if self.user is None:
-                raise forms.ValidationError(
-                    "Invalid email/password combination.")
+    #         if self.user is None:
+    #             logger.info(f"Authentication failed for email {email}")
 
-            logger.info(f"Authentication successful for email {email}")
+    #             raise forms.ValidationError(
+    #                 "Invalid email/password combination.")
 
-        return self.cleaned_data
+    #         logger.info(f"Authentication successful for email {email}")
 
-    def get_user(self):
-        return self.user
+    #     return self.cleaned_data
+
+    # def get_user(self):
+    #     return self.user
 
 
 class CustomeProfileInput(forms.widgets.FileInput):

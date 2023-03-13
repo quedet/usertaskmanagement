@@ -1,24 +1,24 @@
 {
-  "app.css": "/static/css/app.4d9c25fe1dda45dd2bb6.css",
-  "app.js": "/static/js/app.dddabdcb.js",
+  "app.css": "/static/css/app.85b50cb327ceff8b6eba.css",
+  "app.js": "/static/js/app.59a85fd6.js",
   "css/274.1019730737eccccaa507.css": "/static/css/274.1019730737eccccaa507.css",
   "css/274.1019730737eccccaa507.css.map": "/static/css/274.1019730737eccccaa507.css.map",
-  "css/app.4d9c25fe1dda45dd2bb6.css.map": "/static/css/app.4d9c25fe1dda45dd2bb6.css.map",
+  "css/app.85b50cb327ceff8b6eba.css.map": "/static/css/app.85b50cb327ceff8b6eba.css.map",
   "entrypoints": {
     "app": {
       "assets": {
         "js": [
           "/static/js/runtime.a5631209.js",
-          "/static/js/app.dddabdcb.js"
+          "/static/js/app.59a85fd6.js"
         ],
         "css": [
           "/static/css/274.1019730737eccccaa507.css",
-          "/static/css/app.4d9c25fe1dda45dd2bb6.css"
+          "/static/css/app.85b50cb327ceff8b6eba.css"
         ]
       }
     }
   },
-  "js/app.dddabdcb.js.map": "/static/js/app.dddabdcb.js.map",
+  "js/app.59a85fd6.js.map": "/static/js/app.59a85fd6.js.map",
   "js/runtime.a5631209.js.map": "/static/js/runtime.a5631209.js.map",
   "runtime.js": "/static/js/runtime.a5631209.js",
   "vendors/.gitkeep": "/static/vendors/.gitkeep",

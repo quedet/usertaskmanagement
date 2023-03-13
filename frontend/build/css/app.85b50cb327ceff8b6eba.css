@@ -997,6 +997,9 @@ select {
 }.px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }.py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -1171,4 +1174,4 @@ select {
   }
 }
 
-/*# sourceMappingURL=app.4d9c25fe1dda45dd2bb6.css.map*/
+/*# sourceMappingURL=app.85b50cb327ceff8b6eba.css.map*/

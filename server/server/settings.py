@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-le*yt0xheipn=qd9l2$$^=qqee1a5hk^m5^1ax$4hapdp#v-k=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -90,6 +90,10 @@ MESSAGE_TAGS = {
     messages.ERROR: 'bg-red-500'
 }
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'apps.accounts.backends.UsernameAuthentication'
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

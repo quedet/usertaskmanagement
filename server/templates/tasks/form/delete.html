@@ -1,3 +1,13 @@
+<div class="bg-red-100 py-4 px-4">
+    <header class="mb-4">
+        <h3 class="text-xl">{{ instance.title }}</h3>
+    </header>
+    {% if instance.description %}
+    <p>{{ instance.description }}</p>
+    {% else %}
+    <p>No description yet.</p>
+    {% endif %}
+</div>
 <form action="{% url 'tasks:task-delete' instance.pk %}" method="post"
     data-controller="form" 
     data-action="turbo:submit-start->form#submitStart turbo:submit-end->form#submitEnd">
